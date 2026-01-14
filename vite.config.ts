@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
   return {
-    base: './', // CRITICAL: This ensures assets use relative paths (e.g., ./assets/...) for Capacitor/Android
+    base: '/guandan_gitpage/', // Set to repo subpath for GitHub Pages. If you need Capacitor/Android relative assets, switch back to './' when building for native.
     plugins: [
       react(),
       // VitePWA({
