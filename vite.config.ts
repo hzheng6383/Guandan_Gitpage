@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
   return {
-    base: '/guandan_gitpage/', // Set to repo subpath for GitHub Pages. If you need Capacitor/Android relative assets, switch back to './' when building for native.
+    base: './', // Use relative paths so the site works on custom domain or repo subpath
     plugins: [
       react(),
       // VitePWA({
