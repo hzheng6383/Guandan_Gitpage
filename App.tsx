@@ -827,7 +827,8 @@ const App: React.FC = () => {
 
         let posClass = "";
         let rotClass = "";
-        let cardSpacing = "-space-x-2 sm:-space-x-4";
+        // Modified: Tighter spacing on desktop (md) to show approx half card width (-space-x-8 is 2rem/32px, card is w-14/w-16)
+        let cardSpacing = "-space-x-2 sm:-space-x-4 md:-space-x-8";
 
         const isLastPlayed = gameState.lastPlayedBy === player.id;
         const zIndex = isLastPlayed ? 50 : 10;
@@ -865,7 +866,7 @@ const App: React.FC = () => {
                     </div>
                 )}
                 {tableEntry.cards && (
-                    <div className={`flex ${cardSpacing} scale-75 landscape:scale-[0.65] md:scale-100 origin-center animate-in zoom-in duration-300 ${tableEntry.action === 'pass' ? 'opacity-50 grayscale' : ''} ${rotClass} ${isLastPlayed ? 'drop-shadow-2xl brightness-110' : 'brightness-90'}`}>
+                    <div className={`flex ${cardSpacing} scale-75 landscape:scale-[0.65] md:scale-125 origin-center animate-in zoom-in duration-300 ${tableEntry.action === 'pass' ? 'opacity-50 grayscale' : ''} ${rotClass} ${isLastPlayed ? 'drop-shadow-2xl brightness-110' : 'brightness-90'}`}>
                         {tableEntry.cards.map((card) => (
                             <div key={card.id} className="transform hover:-translate-y-2 transition-transform shadow-xl">
                                 <CardComponent card={card} />

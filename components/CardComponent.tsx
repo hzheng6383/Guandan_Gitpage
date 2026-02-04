@@ -87,23 +87,23 @@ const CardComponent: React.FC<CardProps> = ({
     >
       {/* Top Left */}
       <div className={`text-left leading-none ${colorClass} flex flex-nowrap ${compact ? 'flex-row items-center gap-0.5 pl-1 pt-0.5' : 'flex-col items-start pl-1'} w-full`}>
-        <div className={`font-black tracking-tighter ${card.rank === 'RJ' || card.rank === 'BJ' ? 'text-[9px] sm:text-[10px]' : 'text-xs sm:text-base'}`}>
+        <div className={`font-black tracking-tighter ${card.rank === 'RJ' || card.rank === 'BJ' ? 'text-[10px] sm:text-xs md:text-sm lg:text-base' : 'text-sm sm:text-lg md:text-2xl lg:text-3xl'}`}>
           {displayRank}
         </div>
-        <div className={`text-[9px] sm:text-[10px] ${compact ? 'mb-0' : '-mt-0.5 ml-0.5'}`}>{displaySuit}</div>
+        <div className={`text-[10px] sm:text-sm md:text-base lg:text-xl ${compact ? 'mb-0' : '-mt-0.5 ml-0.5'}`}>{displaySuit}</div>
       </div>
 
       {/* Center Watermark - Hidden in compact mode to prevent "Double Suit" confusion or clutter */}
       {!compact && (
         <div className={`absolute inset-0 flex items-center justify-center opacity-[0.12] pointer-events-none ${colorClass}`}>
-          <span className="text-2xl sm:text-4xl md:text-5xl">{displaySuit}</span>
+          <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl">{displaySuit}</span>
         </div>
       )}
 
       {/* Joker Text Vertical */}
       {!compact && (card.rank === 'BJ' || card.rank === 'RJ') && (
         <div className={`absolute inset-0 flex items-center justify-center pointer-events-none ${colorClass}`}>
-          <div className="flex flex-col text-[10px] sm:text-xs font-black tracking-widest opacity-80" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+          <div className="flex flex-col text-[10px] sm:text-xs md:text-sm lg:text-base font-black tracking-widest opacity-80" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
             {card.rank === 'RJ' ? '大王' : '小王'}
           </div>
         </div>
@@ -112,7 +112,7 @@ const CardComponent: React.FC<CardProps> = ({
       {/* Wild Card Badge */}
       {card.isWild && (
         <div className="absolute top-0.5 right-0.5">
-          <div className="bg-red-500 text-white text-[5px] sm:text-[6px] px-1 py-0 rounded-full shadow flex items-center gap-0.5">
+          <div className="bg-red-500 text-white text-[5px] sm:text-[6px] md:text-[8px] px-1 py-0 rounded-full shadow flex items-center gap-0.5">
             <Sparkles size={3} className="fill-white" />
             <span className="font-bold">配</span>
           </div>
@@ -122,17 +122,17 @@ const CardComponent: React.FC<CardProps> = ({
       {/* Level Card Indicator */}
       {card.isLevelCard && !card.isWild && (
         <div className="absolute top-1 right-1 opacity-60">
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-500 rounded-full shadow-sm"></div>
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-blue-500 rounded-full shadow-sm"></div>
         </div>
       )}
 
       {/* Bottom Right (Inverted) */}
       {!compact && (
-        <div className={`absolute bottom-0.5 right-0.5 transform rotate-180 text-left leading-none ${colorClass} flex flex-col items-center w-3.5 sm:w-5`}>
-          <div className={`font-black tracking-tighter ${card.rank === 'RJ' || card.rank === 'BJ' ? 'text-[10px] sm:text-xs' : 'text-sm sm:text-lg'}`}>
+        <div className={`absolute bottom-0.5 right-0.5 transform rotate-180 text-left leading-none ${colorClass} flex flex-col items-center w-3.5 sm:w-5 md:w-6 lg:w-8`}>
+          <div className={`font-black tracking-tighter ${card.rank === 'RJ' || card.rank === 'BJ' ? 'text-[10px] sm:text-xs md:text-sm lg:text-base' : 'text-sm sm:text-lg md:text-2xl lg:text-3xl'}`}>
             {displayRank}
           </div>
-          <div className="text-[10px] sm:text-sm -mt-0.5">{displaySuit}</div>
+          <div className="text-[10px] sm:text-sm md:text-base lg:text-xl -mt-0.5">{displaySuit}</div>
         </div>
       )}
     </div>
